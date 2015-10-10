@@ -1,4 +1,4 @@
-ApplicationController = RouteController.extend({
+Controllers.ApplicationController = RouteController.extend({
   layoutTemplate: "applicationLayout",
 
   onBeforeAction: function () {
@@ -6,9 +6,6 @@ ApplicationController = RouteController.extend({
   }
 });
 
-Router.route("/", {
-  name: "home",
-  action: function() {
-    this.render("pagesHome");
-  }
+Router.configure({
+  layoutTemplate: 'ApplicationLayout'
 });
