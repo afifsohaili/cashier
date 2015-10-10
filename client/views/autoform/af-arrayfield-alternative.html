@@ -1,0 +1,34 @@
+<template name="afArrayField_materialize_alternative">
+  <div>
+    <div class="row">
+      <div class="col s12">
+        <div>
+          {{afFieldLabelText name=atts.name}}
+          {{#if afArrayFieldHasLessThanMaximum name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+          <a
+            href="#"
+            class="autoform-add-item green-text right"
+            data-autoform-field="{{atts.name}}"
+            data-autoform-minCount="{{atts.minCount}}"
+            data-autoform-maxCount="{{atts.maxCount}}">
+            <i class="material-icons">add</i>
+          </a>
+          {{/if}}
+        </div>
+        {{#if afFieldIsInvalid name=atts.name}}
+        <span class="red-text">{{{afFieldMessage name=atts.name}}}</span>
+        {{/if}}
+      </div>
+    </div>
+    {{#afEachArrayItem name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+    <div>
+      {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+      <a href="#" class="autoform-remove-item red-text right">
+        <i class="material-icons right">close</i>
+      </a>
+      {{/if}}
+      {{> afQuickField name=this.name label=false options=afOptionsFromSchema}}
+    </div>
+    {{/afEachArrayItem}}
+  </div>
+</template>
