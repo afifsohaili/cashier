@@ -1,18 +1,22 @@
 <template name="shopReceiptsShow">
-  <ul class="collapsible" data-collapsible="accordion">
-    {{#each items}}
-    <li>
-      <div class="collapsible-header">
-        {{name}}
-        <span class="right">{{quantity}} x RM{{price}}</span>
-      </div>
-      <div class="collapsible-body">
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
-    </li>
-    {{/each}}
-  </ul>
-  <a class="btn waves-effect waves-light pink full-width" href="#">
-    Cash <i class="material-icons right">attach_money</i>
-  </a>
+  <div class="padded">
+    <ul class="collapsible" data-collapsible="accordion">
+      {{#each items}}
+      <li>
+        <div class="collapsible-header">
+          {{name}}
+          <span class="right">{{quantity}} x RM{{price}}</span>
+        </div>
+        <div class="collapsible-body">
+          <p>Lorem ipsum dolor sit amet.</p>
+        </div>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  <div class="z-depth-2 padded">
+    <a class="btn waves-effect waves-light pink full-width" href="#">
+      Cash <i class="material-icons right">attach_money</i>
+    </a>
+  </div>
 </template>
