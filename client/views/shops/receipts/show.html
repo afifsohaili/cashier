@@ -5,7 +5,7 @@
       <li>
         <div class="collapsible-header">
           {{name}}
-          <span class="right">{{quantity}} x RM{{price}}</span>
+          <span class="right">{{quantity}} x RM{{unitPrice}}</span>
         </div>
         <div class="collapsible-body">
           <p>Lorem ipsum dolor sit amet.</p>
@@ -13,7 +13,8 @@
       </li>
       {{/each}}
     </ul>
-    <a class="btn waves-effect black-text waves-blue white full-width" href="#">
+    <a class="btn waves-effect black-text waves-blue white full-width"
+       href="{{pathFor 'shop.receipts.items.new'}}">
       <i class="material-icons left">add</i><span class="left">Add</span>
     </a>
   </div>
