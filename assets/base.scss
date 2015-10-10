@@ -1,3 +1,32 @@
+@import "variables";
+
 body {
   background: color("light-grey", "base");
+}
+
+main {
+  padding: $spacing;
+}
+
+.pink.btn-floating {
+  position: fixed;
+  right: $spacing;
+  bottom: $spacing;
+}
+
+header,
+main,
+footer {
+  padding-left: 240px;
+  @media only screen and (max-width : 992px) {
+    padding-left: 0;
+  }
+}
+
+.button-collapse {
+  padding-left: $spacing;
+}
+
+.padded {
+  padding: $spacing;
 }
