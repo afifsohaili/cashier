@@ -23,3 +23,8 @@ iron:router
 gildaspk:autoform-materialize
 aldeed:autoform
 check
+useraccounts:iron-routing
+accounts-facebook
+useraccounts:materialize
+service-configuration
+alanning:roles
