@@ -1,9 +1,19 @@
+@import "variables";
+
 .btn.full-width {
   width: 100%;
 }
 
-$blue: color("blue", "darken-1");
-
 .waves-effect.waves-blue .waves-ripple {
   background-color: rgba(#1E88E5, 0.29);
+}
+
+.button-collapse {
+  padding-left: $spacing;
+}
+
+.pink.btn-floating {
+  position: fixed;
+  right: $spacing;
+  bottom: $spacing;
 }

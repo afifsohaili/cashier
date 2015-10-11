@@ -4,12 +4,6 @@ body {
   background: color("light-grey", "base");
 }
 
-.pink.btn-floating {
-  position: fixed;
-  right: $spacing;
-  bottom: $spacing;
-}
-
 header,
 main,
 footer {
@@ -17,10 +11,6 @@ footer {
   @media only screen and (max-width : 992px) {
     padding-left: 0;
   }
-}
-
-.button-collapse {
-  padding-left: $spacing;
 }
 
 .padded {
