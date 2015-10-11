@@ -3,9 +3,17 @@ Router.route("/shop/dashboard", {
   name: "dashboard",
   waitOn: function() {
     return [
-      Meteor.subscribe("shop", { ownerId: Meteor.userId() })
+      Meteor.subscribe("shop", Meteor.userId(), function() {
+        debugger;
+        Meteor.subscribe("shopReceipts", Collections.Shops.findOne()._id);
+      })
     ];
   },
+  data: function() {
+    return {
+      receipts: Collections.Receipts.find().fetch();
+    }
+  }
   action: function() {
     this.render("shopDashboard");
   }
