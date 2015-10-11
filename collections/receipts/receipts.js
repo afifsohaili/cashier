@@ -28,4 +28,7 @@ if (Meteor.isServer) {
   Meteor.publish("receipt", function(receiptId) {
     return Receipts.find({ _id: receiptId });
   });
+  Meteor.publish("shopReceipts", function(shopId) {
+    return Receipts.find({ shopId: shopId });
+  });
 }

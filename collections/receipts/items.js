@@ -25,7 +25,11 @@ if (Meteor.isServer) {
         Collections.Receipts.update(doc, { $push: { items: modifier.$set } });
         docId = doc;
       } else {
-        docId = Collections.Receipts.insert({ items: [modifier.$set] });
+        var shop = Collections.Shops.findOne({ ownerId: Meteor.userId() });
+        docId = Collections.Receipts.insert({
+          shopId: shop._id,
+          items: [modifier.$set]
+        });
       }
 
       return docId;

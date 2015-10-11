@@ -1,7 +1,7 @@
 @import "variables";
 
 body {
-  background: color("light-grey", "base");
+  background: color("grey", "lighten-3");
 }
 
 header,
@@ -20,7 +20,4 @@ footer {
 ul.collapsible {
   margin: 0;
   padding: 0;
-}
-
-.collapsible-header {
 }

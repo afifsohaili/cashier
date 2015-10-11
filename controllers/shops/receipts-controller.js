@@ -1,11 +1,3 @@
-Router.route("/shop/receipts/new", {
-  controller: "Controllers.ShopController",
-  name: "shop.receipts.new",
-  action: function() {
-    this.render("shopReceiptsNew");
-  }
-});
-
 Router.route("/shop/receipts/:_id", {
   controller: "Controllers.ShopController",
   name: "shop.receipts.show",

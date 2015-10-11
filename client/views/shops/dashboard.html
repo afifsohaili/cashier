@@ -1,4 +1,7 @@
 <template name="shopDashboard">
+  {{#each receipts}}
+
+  {{/each}}
   <a href="{{pathFor route='shop.receipts.items.new' data=newReceiptId}}"
      class="btn-floating btn-large waves-effect waves-light pink accent-3">
     <i class="material-icons">add</i>

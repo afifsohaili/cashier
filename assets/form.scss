@@ -1,5 +1,6 @@
 @import "variables";
 
-main > form {
+main > form,
+.at-form {
   padding: $spacing;
 }
