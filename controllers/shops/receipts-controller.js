@@ -14,10 +14,16 @@ Router.route("/shop/receipts/:_id", {
     this.next();
   },
   waitOn: function() {
-    return Meteor.subscribe("receipt", this.params._id);
+    return [
+      Meteor.subscribe("receipt", this.params._id),
+      Meteor.subscribe("receiptViewers", this.params._id),
+    ];
   },
   data: function() {
-    return Collections.Receipts.findOne({ _id: this.params._id });
+    return {
+      receipt: Collections.Receipts.findOne({ _id: this.params._id }),
+      viewers: Collections.Viewers.find({ receiptId: this.params._id }).fetch()
+    };
   },
   action: function() {
     this.render("shopReceiptsShow");
