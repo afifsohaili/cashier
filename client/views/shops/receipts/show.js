@@ -7,11 +7,9 @@ template.rendered = function() {
 
 template.events({
   "click .accept": function() {
-    var receiptId = $(this).data("request-id");
-    Meteor.call("acceptView", receiptId);
+    Meteor.call("acceptView", this._id);
   },
   "click .reject": function() {
-    var receiptId = $(this).data("request-id");
-    Meteor.call("rejectView", receiptId);
+    Meteor.call("rejectView", this._id);
   }
 });

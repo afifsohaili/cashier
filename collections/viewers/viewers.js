@@ -14,6 +14,18 @@ if (Meteor.isServer) {
           announced: false
         });
       }
+    },
+    acceptView: function(receiptId) {
+      Viewers.update(receiptId, { $set: {
+        announced: true,
+        accepted: true
+      }});
+    },
+    rejectView: function(receiptId) {
+      Viewers.update(receiptId, { $set: {
+        announced: true,
+        accepted: false
+      }});
     }
   });
 }
