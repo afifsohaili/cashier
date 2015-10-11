@@ -11,7 +11,7 @@ Controllers.ShopController = Controllers.ApplicationController.extend({
     if (shop) {
       this.next();
     } else {
-      this.render("newShop");
+      this.render("shopsNew");
     }
   }]
 });

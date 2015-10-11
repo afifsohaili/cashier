@@ -23,6 +23,12 @@ if (Meteor.isServer) {
           currentReceipt: receiptId
         }
       });
+    },
+    addShop: function(modifier) {
+      check(modifier, Schemas.shop);
+      _.extend(modifier, { ownerId: Meteor.userId() });
+      var docId = Collections.Shops.insert(modifier);
+      return docId;
     }
   });
 }
