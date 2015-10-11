@@ -1,10 +1,4 @@
-Template.shopLayout.rendered = function() {
-  $(".button-collapse").sideNav({
-    closeOnClick: true
-  });
-};
-
-Template.shopLayout.events({
+Template.applicationLayout.events({
   "click #log-out": function(e) {
     e.preventDefault();
     AccountsTemplates.logout();

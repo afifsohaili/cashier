@@ -1,7 +1,3 @@
-Controllers.ShopController = RouteController.extend({
+Controllers.ShopController = Controllers.ApplicationController.extend({
   layoutTemplate: "shopLayout",
-
-  onBeforeAction: function () {
-    this.next();
-  }
 });

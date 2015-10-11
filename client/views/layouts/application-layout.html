@@ -6,5 +6,12 @@
 </head>
 
 <template name="applicationLayout">
+  {{> materializeFlashMessages}}
+  <header>
+    <nav class="blue accent-2">
+      <ul class="right">
+      </ul>
+    </nav>
+  </header>
   {{> yield}}
 </template>
