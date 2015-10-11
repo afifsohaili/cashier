@@ -17,4 +17,12 @@ if (Meteor.isServer) {
       return Collections.Shops.find({ _id: shopId }, { limit: 1 });
     }
   });
+
+  Meteor.methods({
+    makeCurrentReceipt: function(receiptId) {
+      Collections.Shops.update({ ownerId: Meteor.userId() }, {
+        currentReceipt: receiptId
+      });
+    }
+  });
 }

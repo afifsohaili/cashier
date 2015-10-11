@@ -9,6 +9,9 @@ Router.route("/shop/receipts/new", {
 Router.route("/shop/receipts/:_id", {
   controller: "Controllers.ShopController",
   name: "shop.receipts.show",
+  onBeforeAction: function() {
+    Meteor.call("makeCurrentReceipt", this.params._id);
+  },
   waitOn: function() {
     return Meteor.subscribe("receipt", this.params._id);
   },
