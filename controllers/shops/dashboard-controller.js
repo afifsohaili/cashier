@@ -11,9 +11,9 @@ Router.route("/shop/dashboard", {
   },
   data: function() {
     return {
-      receipts: Collections.Receipts.find().fetch();
+      receipts: Collections.Receipts.find().fetch()
     }
-  }
+  },
   action: function() {
     this.render("shopDashboard");
   }
