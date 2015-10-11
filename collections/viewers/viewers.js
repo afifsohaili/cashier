@@ -6,11 +6,14 @@ if (Meteor.isServer) {
     return Viewers.find({ receiptId: receiptId, announced: false });
   });
   Meteor.methods({
-    requestView: function(userId, receiptId) {
-      if (userId && receiptId) {
+    requestView: function(userId, accessCode) {
+      if (userId && accessCode) {
+        var shop = Collections.Shops.findOne({ accessCode: accessCode }),
+            currentBill = shop.currentReceipt;
+
         Viewers.insert({
           viewerId: userId,
-          receiptId: receiptId,
+          receiptId: currentBill,
           announced: false
         });
       }
