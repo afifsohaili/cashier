@@ -1,7 +1,10 @@
 Router.route("/receipts/:_id", {
   name: "receipts.show",
   waitOn: function() {
-    return Meteor.subscribe("receipt", this.params._id);
+    return [
+      Meteor.subscribe("receipt", this.params._id),
+      Meteor.subscribe("requestedView", this.params._id)
+    ];
   },
   data: function() {
     return {
@@ -9,6 +12,19 @@ Router.route("/receipts/:_id", {
     }
   },
   action: function() {
-    this.render("shopReceiptsShow");
+    var requestQuery = Collections.Viewers.find({
+      viewerId: Meteor.userId(),
+      receiptId: this.params._id
+    }, { limit: 1 });
+    if(requestQuery.count() === 0) {
+      this.render("notAuthorized");
+    } else {
+      var request = requestQuery.fetch()[0];
+      if (request.accepted) {
+        this.render("shopReceiptsShow");
+      } else {
+        this.render("notAuthorized");
+      }
+    }
   }
 });

@@ -1,9 +1,12 @@
-Viewers = new Meteor.Collection("viewers");
+var Viewers = new Meteor.Collection("viewers");
 Collections.Viewers = Viewers;
 
 if (Meteor.isServer) {
   Meteor.publish("receiptViewers", function(receiptId) {
     return Viewers.find({ receiptId: receiptId, announced: false });
+  });
+  Meteor.publish("requestedView", function(receiptId) {
+    return Viewers.find({ viewerId: this.userId, receiptId: receiptId });
   });
   Meteor.methods({
     requestView: function(userId, accessCode) {
