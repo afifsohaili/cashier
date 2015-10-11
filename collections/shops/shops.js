@@ -1,4 +1,4 @@
-Collections.Shops = new Meteor.Collection("shop");
+Collections.Shops = new Meteor.Collection("shops");
 
 Schemas.shop = new SimpleSchema({
   name: {
@@ -12,16 +12,16 @@ Schemas.shop = new SimpleSchema({
 });
 
 if (Meteor.isServer) {
-  Meteor.publish("shop", function(shopId) {
-    if (this.userId && Roles.userIsInRole(this.userId, "admin")) {
-      return Collections.Shops.find({ _id: shopId }, { limit: 1 });
-    }
+  Meteor.publish("shop", function(ownerId) {
+    return Collections.Shops.find({ ownerId: ownerId }, { limit: 1 });
   });
 
   Meteor.methods({
     makeCurrentReceipt: function(receiptId) {
       Collections.Shops.update({ ownerId: Meteor.userId() }, {
-        currentReceipt: receiptId
+        $set: {
+          currentReceipt: receiptId
+        }
       });
     }
   });
