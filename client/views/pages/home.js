@@ -5,6 +5,10 @@ template.events({
     e.preventDefault();
     var accessCode = $("#shop-code").val();
     Meteor.call("requestView", Meteor.userId(), accessCode);
-    Router.go("/");
+    Meteor.subscribe("shopCurrentReceipt", accessCode, function() {
+      var shopCurrentReceiptId = Collections.Shops.
+        findOne({ accessCode: accessCode }).currentReceipt;
+      Router.go("receipts.show", { _id: shopCurrentReceiptId });
+    });
   }
 });

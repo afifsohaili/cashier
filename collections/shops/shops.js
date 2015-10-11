@@ -1,4 +1,5 @@
-Collections.Shops = new Meteor.Collection("shops");
+var Shops = new Meteor.Collection("shops");
+Collections.Shops = Shops;
 
 Schemas.shop = new SimpleSchema({
   name: {
@@ -14,6 +15,9 @@ Schemas.shop = new SimpleSchema({
 if (Meteor.isServer) {
   Meteor.publish("shop", function(ownerId) {
     return Collections.Shops.find({ ownerId: ownerId }, { limit: 1 });
+  });
+  Meteor.publish("shopCurrentReceipt", function(accessCode) {
+    return Shops.find({ accessCode: accessCode }, { limit: 1 });
   });
 
   Meteor.methods({
