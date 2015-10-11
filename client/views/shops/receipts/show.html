@@ -9,10 +9,15 @@
           <span class="right">{{quantity}} x RM{{unitPrice}}</span>
         </div>
         <div class="collapsible-body">
-          <p>Lorem ipsum dolor sit amet.</p>
         </div>
       </li>
       {{/each}}
+      <li>
+        <div class="collapsible-header">
+          <strong>Total:</strong>
+          <span class="right"><strong>RM{{total}}</strong></span>
+        </div>
+      </li>
     </ul>
     {{#if isOwner}}
     <a class="btn waves-effect black-text waves-blue white full-width"

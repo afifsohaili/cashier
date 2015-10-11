@@ -17,5 +17,10 @@ template.events({
 template.helpers({
   isOwner: function() {
     return Roles.userIsInRole(Meteor.userId(), "admin");
+  },
+  total: function() {
+    return _.reduce(this.items, function(memo, item) {
+      return memo + (item.unitPrice * item.quantity);
+    }, 0);
   }
 });
