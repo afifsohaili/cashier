@@ -26,7 +26,10 @@ if (Meteor.isServer) {
     },
     addShop: function(modifier) {
       check(modifier, Schemas.shop);
-      _.extend(modifier, { ownerId: Meteor.userId() });
+      _.extend(modifier, {
+        ownerId: Meteor.userId(),
+        accessCode: Meteor.uuid().substring(0, 6)
+      });
       var docId = Collections.Shops.insert(modifier);
       return docId;
     }
