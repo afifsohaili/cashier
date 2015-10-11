@@ -14,17 +14,21 @@
       </li>
       {{/each}}
     </ul>
+    {{#if isOwner}}
     <a class="btn waves-effect black-text waves-blue white full-width"
        href="{{pathFor 'shop.receipts.items.new'}}">
       <i class="material-icons left">add</i><span class="left">Add</span>
     </a>
+    {{/if}}
   </div>
   {{/with}}
+  {{#if isOwner}}
   <div class="z-depth-2 padded">
     <a class="btn waves-effect waves-light pink full-width" href="#">
       Cash <i class="material-icons right">attach_money</i>
     </a>
   </div>
+  {{/if}}
 
   {{#each viewers}}
   <div class="viewer grey darken-4 white-text padded">

@@ -13,3 +13,9 @@ template.events({
     Meteor.call("rejectView", this._id);
   }
 });
+
+template.helpers({
+  isOwner: function() {
+    return Roles.userIsInRole(Meteor.userId(), "admin");
+  }
+});
